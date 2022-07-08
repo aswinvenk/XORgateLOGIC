@@ -1,0 +1,47 @@
+x=input("Enter value 1 ")
+y=input("Enter value 2 ")
+
+tempans=(int(x)^int(y))   #getting the answer using ^ for verification
+
+bit = 16
+
+x=str(format(int(x),b))
+y=str(format(int(y),b))
+
+x=x.zfill(bit)
+y=y.zfill(bit)
+
+a=x.replace("0","2")
+a=a.replace("1","0")
+a=a.replace("2","1")
+
+b=y.replace("0","2")
+b=b.replace("1","0")
+b=b.replace("2","1")
+
+z='0000'
+z=z.zfill(bit)
+
+for i in range(0,bit-1):
+    p=int(x[i])
+    q=int(y[i])
+    r=int(a[i])
+    s=int(b[i])
+    temp = (p and s) or (q and r)
+    z=z[:i]+str(temp)+z[i+1:]
+
+z=z[:bit-1]+str(temp)
+
+#print(z)  #Answer will be in Binary
+
+#binary_to_decimal
+
+k=0
+for i in range(1,len(z)+1):
+    if z[-i]=='1':
+        k=k+(2**(i-1))
+print("The EX-OR of the above two numbers will give ", k)
+
+#Verification:
+print("VERIFICATION : ")
+print(k==tempans)
