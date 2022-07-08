@@ -1,2 +1,2 @@
-# exptwithpython
-My python codes
+# XOR gate logic
+Logic of XOR gate verified with CODE
